@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agente-puro"
+version = "3.0.0"
+description = "Agente Puro NRE–AMM–OMEGA: el modelo propone, el sistema gobierna; solo la evidencia hace hechos."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Adrian Mendez Millan" }]
+requires-python = ">=3.10"
+dependencies = ["pydantic>=2"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+eval = ["pandas>=2", "pyarrow>=14"]
+
+[project.scripts]
+omega-meta = "omega_meta.cli:main"
+agente-puro = "omega_meta.cli:main"
+
+[project.urls]
+Repository = "https://github.com/DeconstructorGnostico/Agente_puro"
+
+[tool.setuptools.packages.find]
+include = ["omega_meta*"]
+
+[tool.setuptools.package-data]
+omega_meta = ["data/*.jsonl"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

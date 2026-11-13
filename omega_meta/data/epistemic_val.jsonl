@@ -1,0 +1,17 @@
+{"text": "Quizás convenga un modelo más pequeño.", "label": "HYPOTHESIS"}
+{"text": "Tal vez el sensor esté descalibrado.", "label": "HYPOTHESIS"}
+{"text": "Probablemente el pico sea por promociones.", "label": "HYPOTHESIS"}
+{"text": "Maybe users churn after price changes.", "label": "HYPOTHESIS"}
+{"text": "Damos por hecho que hay conexión estable.", "label": "ASSUMPTION"}
+{"text": "We assume labels are correct.", "label": "ASSUMPTION"}
+{"text": "Buscamos detectar anomalías en sensores.", "label": "OBJECTIVE"}
+{"text": "The goal is to cut costs.", "label": "OBJECTIVE"}
+{"text": "Debe funcionar sin internet.", "label": "CONSTRAINT"}
+{"text": "No se permite usar datos de menores.", "label": "CONSTRAINT"}
+{"text": "Está por determinar el tamaño del equipo.", "label": "UNKNOWN"}
+{"text": "It is unclear who owns the data.", "label": "UNKNOWN"}
+{"text": "El servidor es rápido.", "label": "CLAIM"}
+{"text": "La Tierra es plana.", "label": "CLAIM"}
+{"text": "La vacuna causa autismo.", "label": "CLAIM"}
+{"text": "El producto es el mejor del mercado.", "label": "CLAIM"}
+{"text": "Python es más lento que C.", "label": "CLAIM"}

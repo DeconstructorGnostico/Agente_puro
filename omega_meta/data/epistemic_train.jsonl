@@ -1,0 +1,28 @@
+{"text": "Hipótesis: el cache reduce la latencia.", "label": "HYPOTHESIS"}
+{"text": "Quizás el modelo esté sobreajustado.", "label": "HYPOTHESIS"}
+{"text": "Tal vez los datos tengan fuga temporal.", "label": "HYPOTHESIS"}
+{"text": "Probablemente la demanda sea estacional.", "label": "HYPOTHESIS"}
+{"text": "Maybe the drift comes from the new sensor.", "label": "HYPOTHESIS"}
+{"text": "Perhaps the labels are noisy.", "label": "HYPOTHESIS"}
+{"text": "Supongo que el servidor tiene GPU.", "label": "ASSUMPTION"}
+{"text": "Asumimos que los usuarios aceptan cookies.", "label": "ASSUMPTION"}
+{"text": "Damos por hecho que el presupuesto se aprueba.", "label": "ASSUMPTION"}
+{"text": "We assume the data is anonymized.", "label": "ASSUMPTION"}
+{"text": "Objetivo: reducir el fraude un 20%.", "label": "OBJECTIVE"}
+{"text": "Quiero clasificar documentos legales.", "label": "OBJECTIVE"}
+{"text": "Buscamos predecir la rotación de clientes.", "label": "OBJECTIVE"}
+{"text": "The goal is to rank products.", "label": "OBJECTIVE"}
+{"text": "Restricción: no usar datos sensibles.", "label": "CONSTRAINT"}
+{"text": "Debe responder en menos de 100 ms.", "label": "CONSTRAINT"}
+{"text": "No se permite enviar datos fuera del país.", "label": "CONSTRAINT"}
+{"text": "It must run on-premise.", "label": "CONSTRAINT"}
+{"text": "Se desconoce el volumen real de transacciones.", "label": "UNKNOWN"}
+{"text": "No sabemos cuántos usuarios hay.", "label": "UNKNOWN"}
+{"text": "Está por determinar el proveedor de nube.", "label": "UNKNOWN"}
+{"text": "It is unclear how many labels exist.", "label": "UNKNOWN"}
+{"text": "El sistema funciona.", "label": "CLAIM"}
+{"text": "La Tierra es plana.", "label": "CLAIM"}
+{"text": "La vacuna causa autismo.", "label": "CLAIM"}
+{"text": "El modelo tiene 95% de precisión.", "label": "CLAIM"}
+{"text": "Our API is the fastest.", "label": "CLAIM"}
+{"text": "Los datos están limpios.", "label": "CLAIM"}
