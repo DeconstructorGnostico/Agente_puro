@@ -92,7 +92,7 @@ Los axiomas del «Sistema Perfeccionado» traducidos a reglas con módulo y prue
 ./run.sh "Necesito predecir la demanda semanal de inventario de 300 tiendas"
 ./run.sh --self-test
 ./run.sh --diagnostics
-./run.sh --serve                      # http://127.0.0.1:8787  (/health, /process, /diagnostics)
+./run.sh --serve                      # http://127.0.0.1:8787  (/health, /process, /diagnostics, /tools, /evaluar…)
 
 # o instalado:
 pip install -e ".[dev]"
@@ -118,14 +118,35 @@ omega-meta --approve LP0001 --reviewer rev-1
 Modelo local opcional: `NRE_OLLAMA=1 NRE_MODEL=llama3.2 omega-meta "..."`. Su salida pasa por el
 firewall y se marca `UNTRUSTED`, `counted_as_evidence: false`.
 
+### Usarlo desde cualquier IA (MCP · HTTP · Skill)
+
+Servidor **MCP** por stdio y **API HTTP** local, sin dependencias nuevas, con cinco herramientas:
+`evaluar`, `verificar_afirmacion`, `firewall_check`, `acciones_pendientes` y `audit_verify`.
+La IA que llama nunca es fuente ni revisora, y no hay forma de autorizar efectos desde ella.
+
+```bash
+pip install -e .
+agente-puro-mcp                                   # MCP stdio (o: python -m omega_meta.mcp)
+omega-meta --serve --verifiers verificadores.json # HTTP: POST /evaluar, /verificar_afirmacion, /firewall_check
+```
+
+Cursor (`.cursor/mcp.json`) o Claude Desktop (`claude_desktop_config.json`):
+
+```json
+{"mcpServers": {"agente-puro": {"command": "/RUTA/A/Agente_puro/.venv/bin/agente-puro-mcp"}}}
+```
+
+Instrucciones para la IA (cuándo llamarlo y cómo obedecer el veredicto):
+[`skills/agente-puro/SKILL.md`](skills/agente-puro/SKILL.md). Detalle: [`docs/USO_DESDE_IA.md`](docs/USO_DESDE_IA.md).
+
 ## Criterio de aceptación
 
 Criterios formales. Cada uno tiene pruebas con nombre; el estado es el de la última corrida de
-`pytest -q` (131 pruebas, 131 aprobadas).
+`pytest -q` (142 pruebas, 142 aprobadas; 131 del núcleo + 11 de los adaptadores MCP/HTTP).
 
 | # | Criterio | Pruebas | Estado |
 |---|---|---|---|
-| A1 | 100 % de pruebas funcionales y de regresión aprobadas | `pytest -q` (toda la suite, incluidas las pruebas heredadas del equipo de meta_agent_ml) | ✅ 131/131 |
+| A1 | 100 % de pruebas funcionales y de regresión aprobadas | `pytest -q` (toda la suite, incluidas las pruebas heredadas del equipo de meta_agent_ml) | ✅ 142/142 |
 | A2 | Ninguna instrucción externa puede alterar el Root Kernel | `tests/test_aceptacion.py::test_proteccion_de_invariantes_raiz`, `tests/test_principios.py::test_amenaza_interna_halt_inmediato`, `tests/test_core_invariants.py::test_root_is_immutable` | ✅ |
 | A3 | Ninguna evidencia puede autodeclararse independiente y ganar confianza sola | `test_aceptacion.py::test_dos_evidencias_mismo_origen_cuentan_una`, `::test_dos_origenes_declarados_distintos_no_bastan_sin_revision`, `::test_evidencia_sin_revision`, `test_truth_verification.py::test_flat_earth_with_self_declared_blogs_not_verified` | ✅ |
 | A4 | Ninguna respuesta del modelo se vuelve hecho directamente | `test_aceptacion.py::test_respuesta_del_modelo_nunca_es_hecho`, `test_truth_verification.py::test_model_cannot_be_source_or_reviewer`, `::test_model_agreement_is_not_evidence` | ✅ |
@@ -248,10 +269,12 @@ omega_meta/
              audit · persistence · storage · classifier · engine (OMEGA control loop)
   agent/     planner (greedy / best-first) · loop acotado · critic · tools · memory (TF-IDF) · router · llm
   team/      equipo de 5 roles (arquitecto ML, ingeniero de datos, MLOps, red team, producto)
-  cli.py · server.py · quality.py · config.py (variantes)
+  adapters/  service (herramientas) · mcp_server (MCP stdio)
+  cli.py · server.py (HTTP) · mcp.py · quality.py · config.py (variantes)
 pure_agent.py   entrada de un solo archivo (interfaz de v5.py)
 eval/           splits dev/held-out · evaluate.py · planning_problems.json · results/
-docs/           EFICIENCIA.md (pre-registro) · RESULTADOS.md · PRINCIPIOS.md · ARTICULO.md · POST_X.txt
+docs/           EFICIENCIA.md (pre-registro) · RESULTADOS.md · PRINCIPIOS.md · ARTICULO.md · POST_X.txt · USO_DESDE_IA.md
+skills/         agente-puro/SKILL.md (Agent Skill para cualquier IA)
 legacy/         versiones anteriores sin cambios (ver legacy/NOTA.md)
 tests/          pytest
 ```

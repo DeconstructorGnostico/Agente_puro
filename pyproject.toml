@@ -19,6 +19,7 @@ eval = ["pandas>=2", "pyarrow>=14"]
 [project.scripts]
 omega-meta = "omega_meta.cli:main"
 agente-puro = "omega_meta.cli:main"
+agente-puro-mcp = "omega_meta.adapters.mcp_server:main"
 
 [project.urls]
 Repository = "https://github.com/DeconstructorGnostico/Agente_puro"

@@ -15,3 +15,4 @@ jobs:
       - run: pytest -q
       - run: omega-meta --self-test
       - run: echo "Cuánto es 256 * 4" | python pure_agent.py
+      - run: agente-puro-mcp --help
