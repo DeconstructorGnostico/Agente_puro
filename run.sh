@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Uso: ./run.sh "problema"   |   ./run.sh --self-test   |   ./run.sh --serve
+# Uso: bash run.sh "problema"   |   bash run.sh --self-test   |   bash run.sh --serve
 set -euo pipefail
 cd "$(dirname "$0")"
 PY="${PYTHON:-python3}"

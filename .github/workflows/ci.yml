@@ -14,5 +14,6 @@ jobs:
       - run: pip install -e ".[dev]"
       - run: pytest -q
       - run: omega-meta --self-test
+      - run: bash run.sh --self-test
       - run: echo "Cuánto es 256 * 4" | python pure_agent.py
       - run: agente-puro-mcp --help

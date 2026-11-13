@@ -2,7 +2,7 @@
 
 > **El modelo propone, el sistema gobierna. Solo la evidencia convierte una afirmación en hecho.**
 
-Arquitectura de **Adrian Mendez Millan** · Licencia MIT · Repositorio:
+Arquitectura de **Adrian Mendez Millan** · Licencia MIT · v1.0.0 · Repositorio:
 <https://github.com/DeconstructorGnostico/Agente_puro>
 
 El Agente Puro es una capa de control que se pone **alrededor** de un agente o de un modelo de
@@ -89,10 +89,10 @@ Los axiomas del «Sistema Perfeccionado» traducidos a reglas con módulo y prue
 ## Uso
 
 ```bash
-./run.sh "Necesito predecir la demanda semanal de inventario de 300 tiendas"
-./run.sh --self-test
-./run.sh --diagnostics
-./run.sh --serve                      # http://127.0.0.1:8787  (/health, /process, /diagnostics, /tools, /evaluar…)
+bash run.sh "Necesito predecir la demanda semanal de inventario de 300 tiendas"
+bash run.sh --self-test
+bash run.sh --diagnostics
+bash run.sh --serve                      # http://127.0.0.1:8787  (/health, /process, /diagnostics, /tools, /evaluar…)
 
 # o instalado:
 pip install -e ".[dev]"

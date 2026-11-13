@@ -139,8 +139,8 @@ los conjuntos públicos no traen evidencia; su valor está en las pruebas, no en
 ```bash
 git clone https://github.com/DeconstructorGnostico/Agente_puro
 cd Agente_puro
-./run.sh --self-test
-./run.sh "Necesito predecir la demanda semanal de inventario de 300 tiendas"
+bash run.sh --self-test
+bash run.sh "Necesito predecir la demanda semanal de inventario de 300 tiendas"
 python pure_agent.py --text "La Tierra es plana."
 pytest -q
 ```
