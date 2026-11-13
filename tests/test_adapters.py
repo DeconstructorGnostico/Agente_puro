@@ -65,6 +65,7 @@ def test_mcp_stdio_handshake_and_list(mcp):
                                    "clientInfo": {"name": "pytest", "version": "0"}})
     assert init["result"]["protocolVersion"] == "2025-06-18"
     assert init["result"]["serverInfo"]["name"] == "agente-puro"
+    assert init["result"]["serverInfo"]["version"] == "1.0.0"
     assert "tools" in init["result"]["capabilities"]
     assert mcp.send("notifications/initialized", notify=True) is None
     assert mcp.send("ping")["result"] == {}

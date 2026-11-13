@@ -29,7 +29,9 @@ def test_http_api_local():
     t.start()
     base = f"http://127.0.0.1:{srv.server_address[1]}"
     try:
-        assert json.loads(urllib.request.urlopen(base + "/health").read())["status"] == "ok"
+        health = json.loads(urllib.request.urlopen(base + "/health").read())
+        assert health["status"] == "ok"
+        assert health["version"] == "1.0.0"
         req = urllib.request.Request(base + "/process", data=json.dumps({"text": "Quiero predecir ventas."}).encode(),
                                      headers={"Content-Type": "application/json"})
         o = json.loads(urllib.request.urlopen(req).read())

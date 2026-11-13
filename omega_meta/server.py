@@ -14,7 +14,7 @@ import json
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 from .adapters.service import TOOLS, AgentePuroService, ToolError
-from .core.engine import AgentePuro
+from .core.engine import VERSION, AgentePuro
 
 MAX_BODY = 64 * 1024
 TOOL_NAMES = {t["name"] for t in TOOLS}
@@ -56,7 +56,7 @@ def make_handler(agent: AgentePuro, service: AgentePuroService | None = None):
         def do_GET(self):
             path = self.path.split("?", 1)[0].rstrip("/") or "/"
             if path == "/health":
-                return self._send(200, {"status": "ok", "engine": "AGENTE_PURO_NRE_AMM_OMEGA"})
+                return self._send(200, {"status": "ok", "engine": "AGENTE_PURO_NRE_AMM_OMEGA", "version": VERSION})
             if path == "/diagnostics":
                 with lock:
                     return self._send(200, agent.diagnostics())
