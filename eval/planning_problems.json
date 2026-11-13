@@ -1,0 +1,182 @@
+[
+ {
+  "id": "P01",
+  "text": "Necesito predecir la demanda semanal de inventario de 300 tiendas con ventas históricas y clima, con presupuesto limitado.",
+  "expected_terms": [
+   "demanda",
+   "inventario",
+   "clima",
+   "presupuesto"
+  ]
+ },
+ {
+  "id": "P02",
+  "text": "Quiero detectar fraude en transacciones de tarjeta en tiempo real con latencia menor a 50 ms y cumpliendo privacidad.",
+  "expected_terms": [
+   "fraude",
+   "latencia",
+   "privacidad"
+  ]
+ },
+ {
+  "id": "P03",
+  "text": "Diseña un sistema para clasificar correos de soporte por urgencia en español e inglés.",
+  "expected_terms": [
+   "correo",
+   "urgencia",
+   "clasific"
+  ]
+ },
+ {
+  "id": "P04",
+  "text": "Necesito un modelo para predecir la rotación de clientes de una telecom usando uso mensual y quejas.",
+  "expected_terms": [
+   "rotacion",
+   "cliente",
+   "queja"
+  ]
+ },
+ {
+  "id": "P05",
+  "text": "Quiero recomendar productos en una tienda en línea con pocos datos de usuarios nuevos.",
+  "expected_terms": [
+   "recomend",
+   "producto",
+   "usuario"
+  ]
+ },
+ {
+  "id": "P06",
+  "text": "Detecta anomalías en sensores de temperatura de una planta industrial sin conexión a internet.",
+  "expected_terms": [
+   "anomal",
+   "sensor",
+   "temperatura"
+  ]
+ },
+ {
+  "id": "P07",
+  "text": "Necesito estimar el tiempo de entrega de pedidos usando distancia, tráfico y hora del día.",
+  "expected_terms": [
+   "entrega",
+   "distancia",
+   "trafico"
+  ]
+ },
+ {
+  "id": "P08",
+  "text": "Quiero resumir contratos legales largos y extraer cláusulas de riesgo.",
+  "expected_terms": [
+   "contrato",
+   "clausula",
+   "riesgo"
+  ]
+ },
+ {
+  "id": "P09",
+  "text": "Diseña un pronóstico de consumo eléctrico por hora para una ciudad con datos de 5 años.",
+  "expected_terms": [
+   "consumo",
+   "electric",
+   "hora"
+  ]
+ },
+ {
+  "id": "P10",
+  "text": "Necesito clasificar imágenes de rayos X para priorizar casos urgentes con supervisión médica.",
+  "expected_terms": [
+   "imagen",
+   "rayos",
+   "medic"
+  ]
+ },
+ {
+  "id": "P11",
+  "text": "Quiero optimizar rutas de reparto para 20 camiones con ventanas horarias.",
+  "expected_terms": [
+   "ruta",
+   "camion",
+   "horari"
+  ]
+ },
+ {
+  "id": "P12",
+  "text": "Construye un sistema de preguntas y respuestas sobre la documentación interna de la empresa.",
+  "expected_terms": [
+   "pregunta",
+   "documentacion"
+  ]
+ },
+ {
+  "id": "P13",
+  "text": "Necesito detectar comentarios tóxicos en un foro en español con bajo presupuesto de cómputo.",
+  "expected_terms": [
+   "toxic",
+   "foro",
+   "presupuesto"
+  ]
+ },
+ {
+  "id": "P14",
+  "text": "Quiero predecir fallas de maquinaria a partir de vibración y horas de uso.",
+  "expected_terms": [
+   "falla",
+   "vibracion",
+   "maquinaria"
+  ]
+ },
+ {
+  "id": "P15",
+  "text": "Predict hospital readmission risk from discharge notes while protecting patient privacy.",
+  "expected_terms": [
+   "readmission",
+   "privacy",
+   "patient"
+  ]
+ },
+ {
+  "id": "P16",
+  "text": "Build a model to forecast daily sales for a coffee chain using weather and holidays.",
+  "expected_terms": [
+   "sales",
+   "weather",
+   "holiday"
+  ]
+ },
+ {
+  "id": "P17",
+  "text": "Design a system to rank job candidates fairly, avoiding bias by gender or age.",
+  "expected_terms": [
+   "candidate",
+   "bias",
+   "fair"
+  ]
+ },
+ {
+  "id": "P18",
+  "text": "I want to classify customer reviews by sentiment in English and Spanish.",
+  "expected_terms": [
+   "review",
+   "sentiment",
+   "spanish"
+  ]
+ },
+ {
+  "id": "P19",
+  "text": "Necesito segmentar clientes de un banco por comportamiento de gasto para campañas.",
+  "expected_terms": [
+   "segment",
+   "cliente",
+   "gasto"
+  ]
+ },
+ {
+  "id": "P20",
+  "text": "Quiero estimar el precio de viviendas con ubicación, metros cuadrados y antigüedad.",
+  "expected_terms": [
+   "precio",
+   "vivienda",
+   "ubicacion"
+  ]
+ }
+]
