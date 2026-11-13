@@ -1,4 +1,4 @@
-"""CLI:  omega-meta "problema"  |  --serve  |  --self-test  |  --diagnostics  |  --learn"""
+"""CLI:  omega-meta "problema"  |  --serve [--verifiers F]  |  --self-test  |  --diagnostics  |  --learn"""
 from __future__ import annotations
 
 import argparse
@@ -70,6 +70,8 @@ def main(argv=None) -> int:
     ap.add_argument("problema", nargs="*")
     ap.add_argument("--serve", action="store_true", help="API HTTP local (127.0.0.1)")
     ap.add_argument("--port", type=int, default=8787)
+    ap.add_argument("--verifiers", default=None,
+                    help='con --serve: JSON o ruta a JSON [{"id","organization"}] de verificadores independientes')
     ap.add_argument("--self-test", action="store_true")
     ap.add_argument("--diagnostics", action="store_true")
     ap.add_argument("--learn", action="store_true", help="ciclo DGM; sin --reviewer las Δ quedan pendientes (I09)")
@@ -87,7 +89,8 @@ def main(argv=None) -> int:
     cfg = VARIANTS[a.variant] if a.variant else default_config()
     if a.serve:
         from .server import serve
-        serve(cfg, a.runtime_dir, a.port)
+        from .adapters.service import load_verifiers
+        serve(cfg, a.runtime_dir, a.port, verifiers=load_verifiers(a.verifiers))
         return 0
     agent = AgentePuro(cfg, runtime_dir=a.runtime_dir)
     if a.register_verifier:
