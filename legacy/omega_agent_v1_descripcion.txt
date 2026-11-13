@@ -1,0 +1,150 @@
+Procesó durante 2m 20s
+
+### NRE–AMM–OMEGA AUTONOMOUS AGENT v1.0
+
+La arquitectura consolidada de tus conversaciones converge en un agente gobernado por un núcleo de control, no en un LLM con permisos irrestrictos.
+
+La integración reúne:
+
+* Capa Cero / RootKernel: invariantes y autoridad raíz.
+
+* SIPE / Context Compiler: convierte la intención en una estructura ejecutable.
+
+* Semantic Firewall: filtra entradas y operaciones no permitidas.
+
+* AMM-CORE: administra contexto y estado.
+
+* OMEGA Execution Engine: planifica y controla ciclos autónomos.
+
+* NEXUS Control Plane: aplica políticas y separa propuesta, verificación, autorización y ejecución.
+
+* Evidence Engine + Independent Verifier: comprueban resultados antes de aceptarlos.
+
+* Learning Controller: aprende selectivamente; no convierte automáticamente una salida del modelo en conocimiento.
+
+* Memory, StateStore y AuditLogger: conservan estado, historial y trazabilidad.
+
+Decisión de implementación: un solo archivo Python, sin dependencias externas para el modo determinista, con conexión opcional a Ollama. Las operaciones externas quedan deshabilitadas por defecto; el agente puede analizar, planificar, ejecutar herramientas locales permitidas, verificar, persistir y detenerse mediante `HALT`.
+
+Compilación y pruebas básicas superadas
+
+### 1\. Código ejecutable
+
+También preparé el archivo completo:
+
+Descargar omega_agent.py
+
+El programa utiliza Python estándar. No necesita instalar paquetes externos.
+
+```bash
+# 1. Ejecutar pruebas internas
+python omega_agent.py --self-test
+
+# 2. Procesar una intención
+python omega_agent.py --goal "Analiza la arquitectura de mi agente"
+
+# 3. Ejecutar una operación local permitida
+python omega_agent.py --goal "calcula 125*48"
+
+# 4. Analizar texto
+python omega_agent.py --goal "analiza texto: La estructura controla el procesamiento."
+
+# 5. Activar Ollama como motor de propuestas
+python omega_agent.py --ollama --model llama3.2 \
+  --goal "Diseña un plan para validar una arquitectura de IA"
+
+# 6. Limitar los ciclos
+python omega_agent.py --max-cycles 3 \
+  --goal "Analiza y estructura este problema"
+```
+
+### 2\. Componentes integrados
+
+| Capa        | Módulo                   | Responsabilidad                     |
+| ----------- | ------------------------ | ----------------------------------- |
+| L0          | RootKernel / Invariants  | Gobierno e invariantes              |
+| L1          | SIPE                     | Interpretación de intención         |
+| L2          | Semantic Firewall        | Filtrado de solicitudes             |
+| L3          | AMM-CORE                 | Gestión del estado                  |
+| L4          | OMEGA                    | Planificación y ciclos              |
+| L5          | Evidence Engine          | Evaluación de evidencia estructural |
+| L5          | Independent Verifier     | Verificación independiente          |
+| L6          | Learning Controller      | Aprendizaje selectivo               |
+| L7          | StateStore / AuditLogger | Persistencia y auditoría            |
+| Transversal | NEXUS                    | Autorización y políticas            |
+
+### 3\. Persistencia generada
+
+Al ejecutarse, crea automáticamente:
+
+```text
+omega_workspace/
+├── omega_config.json
+├── state.json
+├── memory.json
+├── omega_history.json
+└── audit.jsonl
+```
+
+El registro de auditoría incorpora encadenamiento SHA-256. La memoria conserva trazas y huellas de resultados, no convierte las respuestas en hechos verificados.
+
+### 4\. Qué está implementado y qué falta
+
+| Capacidad                                                    | Estado          |
+| ------------------------------------------------------------ | --------------- |
+| Procesamiento estructurado de intención                      | Implementado    |
+| Invariantes y firewall                                       | Implementado    |
+| Planificador determinista                                    | Implementado    |
+| Adaptador opcional Ollama                                    | Implementado    |
+| Ejecución de calculadora local                               | Implementado    |
+| Análisis básico de texto                                     | Implementado    |
+| Ciclo acotado y condición HALT                               | Implementado    |
+| Verificación estructural                                     | Implementado    |
+| Memoria e historial JSON                                     | Implementado    |
+| Auditoría SHA-256 encadenada                                 | Implementado    |
+| Ejecución arbitraria de comandos                             | Deshabilitada   |
+| Modificación de servidores externos                          | No implementada |
+| Verificación factual independiente mediante fuentes externas | Pendiente       |
+| Autorización humana integrada                                | Pendiente       |
+| Gateway multimodelo real                                     | Pendiente       |
+| Integración Firebase y aplicación Android                    | Pendiente       |
+
+Distinción técnica importante: esta versión ya ejecuta operaciones locales limitadas y mantiene un ciclo autónomo acotado. No es todavía un agente general capaz de modificar infraestructura, coordinar múltiples modelos y operar servicios externos. Es el núcleo de referencia ejecutable sobre el que se pueden construir esas capacidades sin conceder autoridad irrestricta al modelo.
+
+### 5\. Principio operativo
+
+La arquitectura queda definida por esta secuencia:
+
+```text
+INPUT
+  ↓
+SIPE — Interpretación
+  ↓
+ROOTKERNEL — Invariantes
+  ↓
+SEMANTIC FIREWALL
+  ↓
+AMM-CORE — Estado y contexto
+  ↓
+OMEGA — Planificación
+  ↓
+NEXUS — Autorización
+  ↓
+TOOL RUNTIME — Ejecución permitida
+  ↓
+EVIDENCE ENGINE
+  ↓
+INDEPENDENT VERIFIER
+  ↓
+LEARNING CONTROLLER
+  ↓
+STATESTORE + AUDIT LOGGER
+  ↓
+COMMIT / REJECT / HALT
+```
+
+La regla fundamental es:
+
+\\boxed{\\text{PROPUESTA}\\neq\\text{AUTORIZACIÓN}\\neq\\text{EJECUCIÓN}}
+
+El siguiente desarrollo lógico es conectar este núcleo con Gemini u Ollama, incorporar verificación factual independiente y desplegar la API en Firebase, conservando NEXUS como plano de control.
