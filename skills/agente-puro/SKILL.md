@@ -4,7 +4,7 @@ description: Gobierna las respuestas y acciones de un agente de IA con Agente Pu
 license: MIT
 metadata:
   repository: https://github.com/DeconstructorGnostico/Agente_puro
-  version: "3.0.0"
+  version: "1.0.0"
   transports: [mcp-stdio, http-localhost, cli]
 ---
 

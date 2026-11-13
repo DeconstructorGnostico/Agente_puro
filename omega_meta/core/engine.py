@@ -99,7 +99,7 @@ class ModelGateway:
         if firewall.scan_text(txt, ruleset):
             return {**base, "status": "OUTPUT_BLOCKED_BY_FIREWALL", "output": None}
         return {**base, "status": "OK", "output": txt[:4000]}
-VERSION = "3.0.0"
+VERSION = "1.0.0"
 
 ORDER = ["INPUT", "NORMALIZE", "FIREWALL", "DECOMPOSE", "CLASSIFY", "DEPENDENCY_ANALYSIS",
          "CONTRADICTION_DETECTION", "EVIDENCE_VALIDATION", "INVARIANT_CHECK", "REASONING", "PLAN",
